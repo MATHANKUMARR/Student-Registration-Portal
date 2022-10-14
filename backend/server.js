@@ -12,6 +12,13 @@ app.use(cors({
 
 app.use(express.static(__dirname + '/views'));
 
+let app1 = express();  
+app1.disable("x-powered-by");
+
+let helmet = require("helmet");
+let app2 = express();
+app2.use(helmet.hidePoweredBy());
+
 //Sequelize
 const database = require("./models");
 database.sequelize.sync()
