@@ -2,6 +2,8 @@ const database = require("../models")
 const Students = database.students;
 
 // Rest API
+
+//get all data
 exports.findAll = (req, res) => {
     Students.findAll()
     .then(data => {
@@ -15,6 +17,7 @@ exports.findAll = (req, res) => {
     });
 }
 
+//gat one data
 exports.findOne = (req, res) => {
     const id = req.params.id;
     Students.findByPk(id)
@@ -29,6 +32,7 @@ exports.findOne = (req, res) => {
     });
 }
 
+//create data
 exports.create = (req, res) => {
     const student = {
         first_name: req.body.first_name,
@@ -50,6 +54,7 @@ exports.create = (req, res) => {
         });
 }
 
+//update data
 exports.update = (req, res) => {
     const id = req.params.id;
     Students.update(req.body, {
@@ -66,6 +71,7 @@ exports.update = (req, res) => {
       });
 };
 
+//delete data
 exports.delete = (req, res) => {
     const id = req.params.id;
     Students.destroy({
