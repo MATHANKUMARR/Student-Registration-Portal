@@ -1,0 +1,34 @@
+
+<div class="top"></div>
+    <div class="container">
+        <h2>Registered Students</h2>
+
+            <p class="p1">Total records - |{{count}}|</p>
+        <table>
+            <caption>Students List</caption>
+            <tr>
+                <th> First Name </th>
+                <th> Last Name </th>
+                <th> Gender </th>
+                <th> Address </th>
+                <th> Email </th>
+                <th> Phone </th>
+                <th class="action"> Action </th>
+            </tr>
+
+                <tr *ngFor="let item of studentDetails">
+                    <td> {{item.first_name}} </td>
+                    <td> {{item.last_name}} </td>
+                    <td> {{item.gender}} </td>
+                    <td> {{item.address}} </td>
+                    <td> {{item.email}} </td>
+                    <td> {{item.phone}} </td>
+                    <td><button class="edit" [routerLink]="[ '/update/',item.student_id]" ><mat-icon class="update-icon">edit</mat-icon></button>
+                        <button class="delete" (click)="deleteStudent(item.student_id)" ><mat-icon class="delete-icon">delete</mat-icon></button>
+                    </td>
+                    
+                </tr>
+        </table>
+        <a href="/"><button class="create">Add Student</button></a>
+
+    </div>
